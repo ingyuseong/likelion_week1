@@ -17,3 +17,18 @@ ggplot(cafe_anova, aes(x = time_interval, y = order)) +
 + scale_x_discrete() + xlab("Time Interval") +
 + ylab("Order")
 ```
+
+### bartlett.test
+```r
+bartlett.test(order ~ time_interval, data = cafe_anova)
+```
+
+### 데이터 익스포팅 & 임포팅
+```r
+write.xlsx(random_1, file = "C://forhw/1.xlsx", col.names = TRUE, row.names = TRUE, append = FALSE)
+> write.xlsx(random_2, file = "C://forhw/2.xlsx", col.names = TRUE, row.names = TRUE, append = FALSE)
+> write.xlsx(random_3, file = "C://forhw/3.xlsx", col.names = TRUE, row.names = TRUE, append = FALSE)
+> cafe_anova <- read_excel("C://forhw/anova_cafe.xlsx")
+> out <- aov(order ~ time_interval, data = cafe_anova)
+> out
+```
