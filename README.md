@@ -85,3 +85,10 @@ bartlett.test(order ~ time_interval, data = cafe_anova)
 > bon <- pairwise.t.test(cafe_anova$order, cafe_anova$time_interval, p.adjust = "bonferroni")
 > bon
 ```
+
+### Cafe 데이터 불러오기
+```r
+install.package("readxl")
+library("readxl")
+cafe_real <- read_excel("C://forhw/cafe.xlsx", col_names = F)
+```
