@@ -23,7 +23,7 @@ ggplot(cafe_anova, aes(x = time_interval, y = order)) +
 bartlett.test(order ~ time_interval, data = cafe_anova)
 ```
 
-### 데이터 익스포팅 & 임포팅 & One-way ANOVA
+### Cafe_Random Data Export/Import & One-way ANOVA
 ```r
 > install.package("xlsx")
 > library("xlsx")
@@ -64,7 +64,7 @@ bartlett.test(order ~ time_interval, data = cafe_anova)
 > summary(r)
 ```
 
-### 상관분석 및 corplot
+### Corplot
 ```r
 > random_custo <- rpois(50, lambda = 9.8333)
 > random_clerk <- rpois(50, lambda = 7.6667)
@@ -79,4 +79,9 @@ bartlett.test(order ~ time_interval, data = cafe_anova)
 > lines(0:20, dpois(0:20, lambda = 9.8333), col ="red")
 > plot(cafe_real$X__1, cafe_real$X__4, main = "Clerk Event")
 > lines(0:14, dpois(0:14, lambda = 7.6667), col ="red")
+```
+### Bonferroni
+```r
+> bon <- pairwise.t.test(cafe_anova$order, cafe_anova$time_interval, p.adjust = "bonferroni")
+> bon
 ```
